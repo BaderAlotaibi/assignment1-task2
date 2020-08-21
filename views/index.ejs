@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Tinder</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    form label.error {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="register-photo">
+    <div class="form-container">
+      <div class="image-holder"></div>
+      <form id="createProfileFrm" action="/create-profile" enctype="multipart/form-data" method="post">
+        <h2 class="text-center"><strong>Create</strong>&nbsp;Profile</h2>
+        <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" required>
+        </div>
+        <!-- <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" required></div>
+                <div class="form-group"><input class="form-control" type="password" name="password_confirm" placeholder="Confirm Password" required></div>-->
+        <div class="form-group"><input class="form-control" type="text" name="fname" placeholder="First Name" required>
+        </div>
+        <div class="form-group"><input class="form-control" data-toggle="tooltip" data-bs-tooltip="" type="date"
+            name="dob" required title="Date of Birth"></div>
+        <div class="form-group"><select class="form-control" data-toggle="tooltip" data-bs-tooltip="" title="Gender"
+            name="gender" required>
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+          </select></div>
+        <div class="form-group">
+          <img class="rounded-circle" id="output" title="Profile Image"
+            src="https://www.allthetests.com/quiz22/picture/pic_1171831236_1.png" width="150em" height="150em">
+        </div>
+        <div class="form-group" data-toggle="tooltip" data-bs-tooltip="" title="Profile Image">
+          <input name="photo" type="file" required accept="image/jpg"
+            onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])"></div>
+        <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Sign Up</button></div>
+      </form>
+    </div>
+  </div>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+  <script src="assets/js/bs-init.js"></script>
+  <script>
+    jQuery("#createProfileFrm").validate();
+
+  </script>
+</body>
+
+</html>

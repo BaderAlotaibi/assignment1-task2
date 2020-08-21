@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Tinder</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">   
+    <link rel="stylesheet" type="text/css" href="assets/css/cuter.css">
+    <style>
+        /* Prevent image stretching is it's resized */
+.card-img-top {
+    object-fit: cover;
+}
+
+/* Make all cards in row the same height */
+.row {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.row > div[class*='col-'] {
+  display: flex;
+}
+
+/* Hover effects */
+.card {
+  transition: -webkit-transform 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.01, 1.01);
+}
+
+/* Responsive design for image heights */
+@media (min-width: 576px) { 
+  .card-img-top {
+    height: 50vw;
+  }
+}
+
+@media (min-width: 768px) { 
+  .card-img-top {
+    height: 30vw;
+  }
+}
+
+@media (min-width: 992px) { 
+  .card-img-top {
+    height: 20vw;
+  }
+}
+
+@media (min-width: 1200px) { 
+  .card-img-top {
+    height: 20vw;
+  }
+}
+
+
+    </style>
+     </head>
+
+<body>
+    <header>
+        <h1>Matched Profiles for <%= email %></h1>
+    </header>
+    <section>
+        <div class="row ">
+             <!-- the cols in this div change the number of cards per row depending on screen size and the mb-4 adds space below cards if they spill over into the next row-->
+           
+            <% for(var i = 0; i < profiles.length; i++) { %>   <!-- For loop to display all the profiles    -->
+            <div class="col-12 col-md-6 col-lg-4 mb-4">   
+              <div class="card">
+                <img  src="uploads/<%- profiles[i].fname %>.jpg" alt="<%- profiles[i].fname %>" class="card-img-top"  />
+                <div class="card-body">
+                    <h5 class="card-title"><%= profiles[i].fname.toUpperCase() %></h5>
+                  <p class="card-text">
+                    Gender: <%= profiles[i].gender %> 
+                <br/>
+                Date of Birth: <%= profiles[i].dob %>
+                </p>
+                </div>
+              </div>
+            </div>
+            <% } %> 
+          </div>
+    </section>
+    
+
+    <footer style="margin-top: 10em;">
+        <p>Tinder Prototype <a href="/matches">Matched Profiles</a> - <a href="/logout">Logout</a> </p>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+ 
+</body>
+
+</html>
